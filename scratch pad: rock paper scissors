@@ -1,3 +1,6 @@
+seed random
+initialize tally array
+
 
 while quitGame != "q" or "Q"
 
@@ -21,8 +24,11 @@ while quitGame != "q" or "Q"
 
 end of while -> plays again
     
+outside while loop
+  game is over
+  print results of all games
 
-
+  say goodbye
 
 end main
 
@@ -41,7 +47,7 @@ computer play
 ------------------------------------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------------
-compare object  (accept user and computer throws)
+compare   (accept user and computer throws)
   compare...  three possibilities .... user win, pc win, tie
 
   //user win
@@ -55,4 +61,14 @@ compare object  (accept user and computer throws)
   if (user->choice == pc->choice)
 
   return round result
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+round completion
+  accepts result of compare and tally array (?)
+
+  increments appropriate position in tally array
+
+  outputs results 
+
 ------------------------------------------------------------------------------------------------------------------------------
