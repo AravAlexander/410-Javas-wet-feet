@@ -1,0 +1,58 @@
+
+while quitGame != "q" or "Q"
+
+  call user play
+    returns back user choice
+
+  call computer play
+    returns back computer choice
+  
+  call compare
+    accepts user and computer throws
+    returns back result of round
+
+  call round completion
+    accepts round result taken from compare function
+    increments the winner's tally or the tie tally
+    outputs name of winner
+
+  ask if play again
+    (q for quit, anything else plays again)
+
+end of while -> plays again
+    
+
+
+
+end main
+
+------------------------------------------------------------------------------------------------------------------------------
+user play
+  ask user to input a choice (1 for rock, 2 for paper, 3 for scissors
+  return choice to main
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+computer play
+  
+  select random number, mod by 3, add 1
+
+  return choice to main
+------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------
+compare object  (accept user and computer throws)
+  compare...  three possibilities .... user win, pc win, tie
+
+  //user win
+  if ( (user->rock AND pc->scissors) OR (user->scissors AND pc->paper) OR (user->paper AND pc->rock) )
+    
+
+  //pc win
+  if ( (pc->rock AND user->scissors) OR (pc->scissors AND user->paper) OR (pc->paper AND user->rock) )
+
+  //tie
+  if (user->choice == pc->choice)
+
+  return round result
+------------------------------------------------------------------------------------------------------------------------------
