@@ -22,14 +22,17 @@ public class RockPaperScissors
         Scanner input = new Scanner(System.in);
         int[] gameTally = new int[3];
         String quitGame;
-        
-        System.out.println("outside input: ");
-        quitGame = input.next();
+        boolean playGame = true;
          
-        while(quitGame != "Quit")
+        while(playGame)
         {
-            System.out.println("inside input: ");
+            //play game!
+            
+            System.out.println("Enter Q to quit\nAny other input to keep playing: ");
             quitGame = input.next();
+            
+            if(quitGame.matches("Q"))
+            {playGame=false;}
         }
         
          System.out.println("end");
