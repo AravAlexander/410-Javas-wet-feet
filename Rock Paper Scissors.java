@@ -16,6 +16,9 @@ public class RockPaperScissors
     /**
      * @param args the command line arguments
      */ 
+    
+
+    
     public static void main(String[] args) 
     {
         Scanner input = new Scanner(System.in);
@@ -32,6 +35,7 @@ public class RockPaperScissors
             userChoice = userPlay();
                     
             //computer plays
+            computerChoice = computerPlay();
             
             System.out.println("Enter Q to quit\nAny other input to keep playing: ");
             quitGame = input.next();
@@ -47,12 +51,35 @@ public class RockPaperScissors
     public static int userPlay()
     {
         Scanner userIn = new Scanner(System.in);
-        int choice;
+        int userPlayChoice;
         //code!
         System.out.println("It is your turn, human. Please enter:\n1 for Rock\n2 for Paper\n3 for Scissors");
-        choice = userIn.nextInt();
+        userPlayChoice = userIn.nextInt();
         
-        return choice;
-    }
+        switch(userPlayChoice)
+        {
+            case 1:System.out.println("You have chosen Rock"); break;
+            case 2:System.out.println("You have chosen Paper"); break;
+            case 3:System.out.println("You have chosen Scissors"); break;
+        }
+        
+        return userPlayChoice;
+    }//end of userPlay method
+    
+    public static int computerPlay()
+    {
+        Random generator = new Random();
+        int computerPlayChoice = generator.nextInt(3) + 1;
+        
+        switch(computerPlayChoice)
+        {
+            case 1:System.out.println("The computer has chosen Rock"); break;
+            case 2:System.out.println("The computer has chosen Paper"); break;
+            case 3:System.out.println("The computer has chosen Scissors"); break;
+        }
+        
+        return computerPlayChoice;
+    }//end of computerPlay method
+          
     
 }
