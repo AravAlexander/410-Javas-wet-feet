@@ -15,11 +15,7 @@ public class RockPaperScissors
 
     /**
      * @param args the command line arguments
-     */ 
-    
-
-    
-    @SuppressWarnings("empty-statement")
+     */
     public static void main(String[] args) 
     {
         Scanner input = new Scanner(System.in);
@@ -27,6 +23,8 @@ public class RockPaperScissors
         String quitGame;
         boolean playGame = true;
         int userChoice, computerChoice, winner;
+        
+        System.out.println("Welcome to Rock, Paper Scissors!\n");
          
         while(playGame)
         {
@@ -43,14 +41,16 @@ public class RockPaperScissors
             //complete this round
             finishRound(winner, gameTally);
             
-            System.out.println("Enter Q to quit\nAny other input to keep playing: ");
+            System.out.println("Enter Q to quit, or any other input to keep playing: ");
             quitGame = input.next();
             
             if(quitGame.matches("Q"))
             {playGame=false;}
         }
         
-         System.out.println("Goodbye!");
+        printTallies(gameTally);
+        
+        System.out.println("Goodbye!");
         
     }//end of main method
     
@@ -138,5 +138,20 @@ public class RockPaperScissors
         }
         
     }//end of finishRound
+    
+    public static void printTallies(int[] gameTally)
+    {
+        System.out.print("The human won ");
+        System.out.print(gameTally[0]);
+        System.out.println(" games.");
+        
+        System.out.print("The computer won ");
+        System.out.print(gameTally[1]);
+        System.out.println(" games.");
+
+        System.out.print("There were ");
+        System.out.print(gameTally[2]);
+        System.out.println(" tied games.");        
+    }
     
 }
