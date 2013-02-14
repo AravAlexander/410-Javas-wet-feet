@@ -1,4 +1,3 @@
-
 package rockpaperscissors;
 
 /**
@@ -18,7 +17,6 @@ public class RockPaperScissors
      */ 
     public static void main(String[] args) 
     {
-        // TODO code application logic here
         Scanner input = new Scanner(System.in);
         int[] gameTally = new int[3];
         String quitGame;
