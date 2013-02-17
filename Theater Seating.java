@@ -32,8 +32,6 @@ public class TheaterSeatingMap
                             {20, 30, 30, 40, 50, 50, 40, 30, 30, 20},
                             {30, 40, 50, 50, 50, 50, 50, 50, 40, 30} };
 
-//        printSeatMap(seatMap);
-
         while(chooseSeats)
         {
             System.out.println("Welcome to Theater Alexander.");
@@ -46,7 +44,7 @@ public class TheaterSeatingMap
             switch(methodChoice)
             {
                 case 1: seatChoice = seatByPrice(seatMap); break;
-                case 2: seatChoice = seatByCoord(seatMap); break;
+                case 2: printSeatMap(seatMap); seatChoice = seatByCoord(seatMap); break;
                 default: System.out.println("\nInvalid choice, try again.\n");
             }          
             
@@ -73,7 +71,7 @@ public class TheaterSeatingMap
         
         for(row=0; row<8; row++)
         {//outer print loop
-            System.out.print(String.format("%02d",row+1));
+            System.out.print(String.format("%02d",row));
             System.out.print("|");//print row numbers
             
             for(column=0; column<10; column++)
@@ -98,7 +96,7 @@ public class TheaterSeatingMap
         
         for(row=0; row<8; row++)
         {//outer print loop
-            System.out.print(String.format("%02d",row+1));
+            System.out.print(String.format("%02d",row));
             System.out.print("|");//print row numbers
             
             for(column=0; column<10; column++)
@@ -127,6 +125,7 @@ public class TheaterSeatingMap
         Scanner userIn = new Scanner(System.in);
         int chosenPrice;
         int seatNumber=0;
+        int userRow, userCol;
         
         System.out.print("Please enter a price (10, 20, 30, 40, 50): ");
         chosenPrice = userIn.nextInt();
@@ -134,12 +133,26 @@ public class TheaterSeatingMap
         
         priceSelectMap(seatMap, chosenPrice);
         
+        seatNumber = seatByCoord(seatMap);
+                
         return seatNumber;
     }//end of seat by price
     
     public static int seatByCoord(int[][] seatMap)
     {
+        Scanner userIn = new Scanner(System.in);
+        int seatNum;
+        int userRow, userCol;
+        
+        System.out.println("\nPlease enter seat coordinates.");
+        System.out.print("Row: ");
+        userRow = userIn.nextInt();
+        System.out.print("Column: ");
+        userCol = userIn.nextInt();
 
-        return 0;        
+        userRow = userRow*10;
+        seatNum = userRow+userCol;
+
+        return seatNum;        
     }//end of seat by price
 }
