@@ -62,6 +62,13 @@ public class RockPaperScissors
         System.out.println("It is your turn, human. Please enter:\n1 for Rock\n2 for Paper\n3 for Scissors");
         userPlayChoice = userIn.nextInt();
         
+        while(userPlayChoice != 1 && userPlayChoice != 2 && userPlayChoice != 3)
+        {
+            System.out.print("Invalid choice. Please choose again: ");
+            userPlayChoice = userIn.nextInt();
+            System.out.println();
+        }
+        
         switch(userPlayChoice)
         {
             case 1:System.out.println("You have chosen Rock"); break;
