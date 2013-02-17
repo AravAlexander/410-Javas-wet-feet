@@ -46,9 +46,7 @@ public class TheaterSeatingMap
                 case 2: printSeatMap(seatMap); seatByCoord(seatMap); break;
                 default: System.out.println("\nInvalid choice, try again.\n");
             }          
-            
-            System.out.println("\n\nThank you for your selection.");
-            
+                        
             System.out.print("Enter Q to quit, any other input to purchase a new seat: ");
             stopInput = input.next();
             System.out.println();
@@ -130,6 +128,14 @@ public class TheaterSeatingMap
         chosenPrice = userIn.nextInt();
         System.out.println();
         
+        while(chosenPrice != 10 && chosenPrice != 20 && chosenPrice != 30 && chosenPrice != 40 && chosenPrice !=50)
+        {
+            System.out.println("Invalid choice.");
+            System.out.print("Please enter a price (10, 20, 30, 40, 50): ");
+            chosenPrice = userIn.nextInt();
+            System.out.println();
+        }
+        
         priceSelectMap(seatMap, chosenPrice);
         
         seatByCoord(seatMap);
@@ -146,7 +152,20 @@ public class TheaterSeatingMap
         System.out.print("Column: ");
         userCol = userIn.nextInt();
 
-        //mark purchased seat with a 00
+        while( userRow < 1 || userRow > 8 || userCol < 1 || userCol > 10 || seatMap[userRow-1][userCol-1]==0)
+        {//bad input
+            System.out.println("Invalid input, try again.");
+            System.out.println("\nPlease enter seat coordinates.");
+            System.out.print("Row: ");
+            userRow = userIn.nextInt();
+            System.out.print("Column: ");
+            userCol = userIn.nextInt();
+        }
+        
+        System.out.println("\n\nThank you for your choice.");
+        System.out.print("Your account has been charged $");
+        System.out.print(seatMap[userRow-1][userCol-1]);
+        System.out.println(" and an additional $150 in service charges.");
         seatMap[userRow-1][userCol-1]=0;
         
     }//end of seat by price
