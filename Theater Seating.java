@@ -67,7 +67,7 @@ public class TheaterSeatingMap
         
         
         System.out.println("   01 02 03 04 05 06 07 08 09 10");//print column numbers
-        System.out.println("   ----------------------------");//print column numbers
+        System.out.println("   -----------------------------");//print column numbers
         for(row=0; row<8; row++)
         {
             System.out.print(String.format("%02d",row+1));
