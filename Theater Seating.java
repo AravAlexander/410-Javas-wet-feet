@@ -71,7 +71,7 @@ public class TheaterSeatingMap
         
         for(row=0; row<8; row++)
         {//outer print loop
-            System.out.print(String.format("%02d",row));
+            System.out.print(String.format("%02d",row+1));
             System.out.print("|");//print row numbers
             
             for(column=0; column<10; column++)
@@ -96,7 +96,7 @@ public class TheaterSeatingMap
         
         for(row=0; row<8; row++)
         {//outer print loop
-            System.out.print(String.format("%02d",row));
+            System.out.print(String.format("%02d",row+1));
             System.out.print("|");//print row numbers
             
             for(column=0; column<10; column++)
@@ -124,8 +124,7 @@ public class TheaterSeatingMap
     {
         Scanner userIn = new Scanner(System.in);
         int chosenPrice;
-        int seatNumber=0;
-        int userRow, userCol;
+        int seatNumber;
         
         System.out.print("Please enter a price (10, 20, 30, 40, 50): ");
         chosenPrice = userIn.nextInt();
@@ -150,8 +149,10 @@ public class TheaterSeatingMap
         System.out.print("Column: ");
         userCol = userIn.nextInt();
 
-        userRow = userRow*10;
-        seatNum = userRow+userCol;
+        seatNum = ( ((userRow-1)*10) + (userCol-1));
+        
+        System.out.print("chosen array index is ");
+        System.out.println(seatNum);
 
         return seatNum;        
     }//end of seat by price
