@@ -89,9 +89,9 @@ public class TheaterSeatingMap
         
     }//end generic print method
     
-    public static int priceSelectMap(int[][] seatMap, int userSelection) 
+    public static void priceSelectMap(int[][] seatMap, int userSelection) 
     {//print method, used by seatByPrice method
-        int row, column, seat=0;        
+        int row, column;        
        
         System.out.println("   01 02 03 04 05 06 07 08 09 10");//print column numbers
         System.out.println("   -----------------------------");//print column numbers
@@ -112,14 +112,14 @@ public class TheaterSeatingMap
                 
                 else
                 {
-                    System.out.print(":: ");
+                    System.out.print("   ");
                 }
             }//inner print loop     
             
             System.out.println();
             
         }//outer print loop
-        return seat;
+
     }//end print method, used by seatByPrice method
     
     public static int seatByPrice(int[][] seatMap)
@@ -132,7 +132,7 @@ public class TheaterSeatingMap
         chosenPrice = userIn.nextInt();
         System.out.println();
         
-        seatNumber = priceSelectMap(seatMap, chosenPrice);
+        priceSelectMap(seatMap, chosenPrice);
         
         return seatNumber;
     }//end of seat by price
