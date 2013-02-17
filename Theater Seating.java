@@ -21,7 +21,6 @@ public class TheaterSeatingMap
         boolean chooseSeats=true;
         String stopInput;
         int methodChoice;
-        int seatChoice;
         
         int[][] seatMap = { {10, 10, 10, 10, 10, 10, 10, 10, 10, 10},
                             {10, 10, 10, 10, 10, 10, 10, 10, 10, 10},
@@ -43,13 +42,13 @@ public class TheaterSeatingMap
 
             switch(methodChoice)
             {
-                case 1: seatChoice = seatByPrice(seatMap); break;
-                case 2: printSeatMap(seatMap); seatChoice = seatByCoord(seatMap); break;
+                case 1: seatByPrice(seatMap); break;
+                case 2: printSeatMap(seatMap); seatByCoord(seatMap); break;
                 default: System.out.println("\nInvalid choice, try again.\n");
             }          
             
+            System.out.println("\n\nThank you for your selection.");
             
-                        
             System.out.print("Enter Q to quit, any other input to purchase a new seat: ");
             stopInput = input.next();
             System.out.println();
@@ -65,6 +64,8 @@ public class TheaterSeatingMap
     {//generic print method
         int row, column;
         
+        System.out.println("Seats are marked by their ticket price.");
+        System.out.println("Seats marked with a 00 are unavailable.\n");
         
         System.out.println("   01 02 03 04 05 06 07 08 09 10");//print column numbers
         System.out.println("   -----------------------------");//print column numbers
@@ -76,7 +77,7 @@ public class TheaterSeatingMap
             
             for(column=0; column<10; column++)
             {//inner print loop
-                System.out.print(seatMap[row][column]);
+                    System.out.print(String.format("%02d",seatMap[row][column]));
                 System.out.print(" ");
                 
             }//inner print loop     
@@ -104,7 +105,7 @@ public class TheaterSeatingMap
                 
                 if(seatMap[row][column] == userSelection)
                 {
-                    System.out.print(seatMap[row][column]);
+                    System.out.print(String.format("%02d",seatMap[row][column]));
                     System.out.print(" ");                    
                 }
                 
@@ -120,11 +121,10 @@ public class TheaterSeatingMap
 
     }//end print method, used by seatByPrice method
     
-    public static int seatByPrice(int[][] seatMap)
+    public static void seatByPrice(int[][] seatMap)
     {
         Scanner userIn = new Scanner(System.in);
         int chosenPrice;
-        int seatNumber;
         
         System.out.print("Please enter a price (10, 20, 30, 40, 50): ");
         chosenPrice = userIn.nextInt();
@@ -132,15 +132,12 @@ public class TheaterSeatingMap
         
         priceSelectMap(seatMap, chosenPrice);
         
-        seatNumber = seatByCoord(seatMap);
-                
-        return seatNumber;
+        seatByCoord(seatMap);
     }//end of seat by price
     
-    public static int seatByCoord(int[][] seatMap)
+    public static void seatByCoord(int[][] seatMap)
     {
         Scanner userIn = new Scanner(System.in);
-        int seatNum;
         int userRow, userCol;
         
         System.out.println("\nPlease enter seat coordinates.");
@@ -149,11 +146,8 @@ public class TheaterSeatingMap
         System.out.print("Column: ");
         userCol = userIn.nextInt();
 
-        seatNum = ( ((userRow-1)*10) + (userCol-1));
+        //mark purchased seat with a 00
+        seatMap[userRow-1][userCol-1]=0;
         
-        System.out.print("chosen array index is ");
-        System.out.println(seatNum);
-
-        return seatNum;        
     }//end of seat by price
 }
